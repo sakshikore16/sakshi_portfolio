@@ -1,0 +1,87 @@
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--cursor-dot-color);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.3s ease;
+}
+
+.custom-cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text-primary);
+  background-color: transparent;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.3s ease, 
+              background-color 0.3s ease;
+}
+
+/* Hover active scaling state */
+.custom-cursor-ring.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: var(--cursor-color);
+  border-color: transparent;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot.clicked {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-cursor-ring.clicked {
+  width: 30px;
+  height: 30px;
+}
+
+/* Hover active state displaying custom text inside the cursor */
+.custom-cursor-ring.has-text {
+  width: 80px;
+  height: 80px;
+  background-color: var(--text-primary);
+  border-color: transparent;
+}
+
+.custom-cursor-ring.has-text .cursor-inner-text {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bg-primary);
+  animation: fadeInCursorText 0.3s ease forwards;
+}
+
+@keyframes fadeInCursorText {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hide cursor on tablet/mobile touch screens */
+@media (max-width: 1024px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}

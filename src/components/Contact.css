@@ -1,0 +1,291 @@
+.contact-section {
+  padding: 100px 0;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+.contact-pane-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.contact-pane-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* Left Pane: Social list links */
+.social-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.social-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background-color: var(--bg-card);
+  transition: var(--transition-smooth);
+}
+
+.social-icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--accent-rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.social-item-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  line-height: 1.2;
+}
+
+.social-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.social-val {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.social-arrow {
+  color: var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+/* Hover effects */
+.social-item-row:hover {
+  border-color: var(--accent-rust);
+  transform: translateX(4px);
+}
+
+.social-item-row:hover .social-icon-circle {
+  background-color: var(--accent-rust);
+  color: #f7f4ef;
+}
+
+.social-item-row:hover .social-arrow {
+  color: var(--accent-rust);
+  transform: translateX(2px);
+}
+
+/* Devanagari footer signature card */
+.cultural-signature {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature-marathi {
+  font-family: var(--font-devanagari);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-rust);
+}
+
+.signature-english {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+/* Right Pane: Contact Form Fields */
+.contact-right-col {
+  padding-left: 4rem;
+}
+
+.contact-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-group-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field-label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.form-field-input,
+.form-field-textarea {
+  width: 100%;
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  border-radius: 4px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.form-field-textarea {
+  resize: vertical;
+}
+
+.form-field-input:focus,
+.form-field-textarea:focus {
+  border-color: var(--accent-rust);
+  box-shadow: 0 4px 10px rgba(188, 90, 66, 0.05);
+}
+
+.form-field-input.error,
+.form-field-textarea.error {
+  border-color: #d94e34;
+}
+
+.error-message-text {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #d94e34;
+  margin-top: 0.15rem;
+}
+
+.form-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 52px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-top: 1rem;
+}
+
+.form-submit-btn:hover {
+  background-color: var(--accent-rust);
+  border-color: var(--accent-rust);
+  color: #f7f4ef;
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner-icon-animate {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Status Indicator Boxes */
+.status-indicator-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.status-indicator-box.success {
+  background-color: rgba(46, 125, 50, 0.05);
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.status-indicator-box.success .indicator-icon {
+  color: #2e7d32;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.status-indicator-box.error {
+  background-color: rgba(217, 78, 52, 0.05);
+  border-color: #d94e34;
+  color: #d94e34;
+}
+
+.status-indicator-box.error .indicator-icon {
+  color: #d94e34;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .contact-grid {
+    gap: 3rem;
+  }
+  .contact-right-col {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .contact-right-col {
+    padding-left: 0;
+  }
+  .contact-right-col::before {
+    display: none;
+  }
+}

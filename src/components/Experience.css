@@ -1,0 +1,167 @@
+.experience-section {
+  padding: 100px 0;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.timeline-item-editorial {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  gap: 4rem;
+}
+
+/* Left Column: Number, Dates, Tech Stack */
+.timeline-meta-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.timeline-number {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent-rust);
+  margin-bottom: 1rem;
+}
+
+.timeline-duration {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.timeline-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+/* Right Column: Descriptions & Details */
+.timeline-content-col {
+  padding-left: 4rem;
+}
+
+.timeline-role-group {
+  margin-bottom: 1.5rem;
+}
+
+.experience-company {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.experience-role {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+}
+
+.responsibilities-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.responsibilities-list li {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.responsibilities-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-rust);
+}
+
+/* Achievement box */
+.exp-achievement {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.achievement-badge-holder {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-gold);
+}
+
+.achievement-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.achievement-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .timeline-item-editorial {
+    gap: 2rem;
+  }
+  .timeline-content-col {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-item-editorial {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .timeline-content-col {
+    padding-left: 0;
+  }
+  .timeline-content-col::before {
+    display: none;
+  }
+  .timeline-duration {
+    margin-bottom: 1rem;
+  }
+}

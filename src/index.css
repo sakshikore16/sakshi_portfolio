@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Federo&family=Noto+Serif+Devanagari:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Variables */
+:root {
+  /* Default variables - Fallback to Cultural theme */
+  --bg-primary: #f8f5ee;
+  --bg-secondary: #eeeae0;
+  --bg-card: #fefcf7;
+  --text-primary: #1e1b18;
+  --text-secondary: #746452;
+  --border-color: #dcd4c4;
+  --accent-gold: #b3893c;
+  --accent-rust: #c85a32;
+  --cursor-color: rgba(30, 27, 24, 0.15);
+  --cursor-dot-color: #c85a32;
+  --selection-bg: #e5ded0;
+  --selection-text: #1e1b18;
+  
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-brand: 'Federo', cursive;
+  --font-devanagari: 'Noto Serif Devanagari', serif;
+
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Vibe 1: Cultural Editorial (Traditional Sanskrit / Print script vibe) */
+[data-vibe="cultural"] {
+  --bg-primary: #f8f5ee;
+  --bg-secondary: #eeeae0;
+  --bg-card: #fefcf7;
+  --text-primary: #1e1b18;
+  --text-secondary: #746452;
+  --border-color: #dcd4c4;
+  --accent-gold: #b3893c;
+  --accent-rust: #c85a32;
+  --cursor-color: rgba(30, 27, 24, 0.15);
+  --cursor-dot-color: #c85a32;
+  --selection-bg: #e5ded0;
+  --selection-text: #1e1b18;
+}
+
+/* Vibe 2: Modern Obsidian (Tech / Dark Mode cyber slate vibe) */
+[data-vibe="obsidian"] {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #11141c;
+  --bg-card: #151821;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --border-color: #222d3d;
+  --accent-gold: #38bdf8;
+  --accent-rust: #6366f1;
+  --cursor-color: rgba(56, 189, 248, 0.2);
+  --cursor-dot-color: #38bdf8;
+  --selection-bg: #1e293b;
+  --selection-text: #ffffff;
+  --font-serif: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Vibe 3: Minimal Carbon (Clean Monochrome High-Contrast Print vibe) */
+[data-vibe="minimal"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --bg-card: #ffffff;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --border-color: #18181b;
+  --accent-gold: #09090b;
+  --accent-rust: #71717a;
+  --cursor-color: rgba(9, 9, 11, 0.1);
+  --cursor-dot-color: #09090b;
+  --selection-bg: #e4e4e7;
+  --selection-text: #09090b;
+  --font-serif: 'Courier New', Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+p {
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+/* Layout Utilities - Editorial Editorial Grids */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid-editorial {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.border-line {
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.border-line-y::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: var(--border-color);
+}
+
+.border-line-x::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+/* Micro animations & utility classes */
+.hover-gold:hover {
+  color: var(--accent-gold);
+}
+
+.hover-rust:hover {
+  color: var(--accent-rust);
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.devanagari-badge {
+  font-family: var(--font-devanagari);
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Entrance Animations */
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: revealUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes revealUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  .grid-editorial {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Footer Editorial Style */
+.footer-editorial {
+  background-color: var(--bg-secondary);
+  padding: 3rem 0;
+  margin-top: 5rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-monogram {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-rust) 40%, var(--accent-gold) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-brand);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f7f4ef;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.footer-name-marathi {
+  font-family: var(--font-devanagari);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 44px;
+  padding: 0 1.25rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition-smooth);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
