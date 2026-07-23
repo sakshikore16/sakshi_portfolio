@@ -116,3 +116,313 @@
     padding: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   CERTIFICATE MODAL VIEWER SYSTEM
+   ========================================================================== */
+
+.certificate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 12, 16, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.certificate-modal-content {
+  background-color: var(--bg-card);
+  width: 100%;
+  max-width: 750px;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  animation: modalSlideUp 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+.cert-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transition-smooth);
+}
+
+.cert-close-btn:hover {
+  background-color: var(--accent-rust);
+  color: #f7f4ef;
+  border-color: var(--accent-rust);
+}
+
+/* Certificate Frame styling resembling paper credentials */
+.certificate-frame {
+  margin: 3.5rem 2rem 2rem 2rem;
+  padding: 1.5rem;
+  background-color: #fbf9f4; /* specific premium paper tint */
+  border: 3px double var(--border-color);
+  position: relative;
+}
+
+[data-vibe="obsidian"] .certificate-frame {
+  background-color: #11141c;
+  border-color: var(--border-color);
+}
+
+.certificate-inner-border {
+  border: 1px solid var(--border-color);
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-monogram-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-brand);
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--border-color);
+  opacity: 0.08;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cert-org-header {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-rust);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-title-seal {
+  display: inline-block;
+  border-bottom: 2px solid var(--accent-gold);
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-seal-text {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.cert-credential-banner {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-present-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-recipient-name {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-achievement-text {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto 1rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-achievement-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--accent-rust);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-achievement-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+}
+
+/* Certificate Footer details */
+.cert-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cert-footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}
+
+.cert-sig-col {
+  align-items: flex-end;
+}
+
+.cert-sig-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  margin-bottom: 0.5rem;
+}
+
+.cert-footer-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.cert-footer-val {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cert-footer-val-sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+.cert-security-hash {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Modal keyframe animations */
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive modal rules */
+@media (max-width: 768px) {
+  .certificate-modal-overlay {
+    padding: 1rem;
+  }
+  
+  .certificate-frame {
+    margin: 3rem 1rem 1rem 1rem;
+    padding: 0.75rem;
+  }
+  
+  .certificate-inner-border {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+  
+  .cert-credential-banner {
+    font-size: 1.5rem;
+  }
+  
+  .cert-recipient-name {
+    font-size: 2rem;
+  }
+  
+  .cert-achievement-title {
+    font-size: 1.25rem;
+  }
+  
+  .cert-footer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .cert-footer-col {
+    width: 80%;
+    align-items: center;
+  }
+  
+  .cert-sig-col {
+    align-items: center;
+  }
+}

@@ -32,8 +32,7 @@ export default function Skills() {
   const categories = [
     { key: 'programming', label: 'Programming Languages' },
     { key: 'frontend', label: 'Frontend Stack' },
-    { key: 'backend', label: 'Backend Stack' },
-    { key: 'databases', label: 'Databases' },
+    { key: 'backend_databases', label: 'Backend & Databases' },
     { key: 'uiux', label: 'UI/UX Design & Prototyping' },
     { key: 'aiml', label: 'AI / ML & Problem Solving' },
     { key: 'tools', label: 'Development & Tools' }
@@ -53,22 +52,28 @@ export default function Skills() {
           <h3 className="skills-sub-title">Technical Proficiencies</h3>
           
           <div className="skills-category-grid">
-            {categories.map((cat, idx) => (
-              <div key={cat.key} className="skills-category-block border-line">
-                <div className="skills-block-header">
-                  <span className="skills-block-num">0{idx + 1} /</span>
-                  <h4 className="skills-block-title">{cat.label}</h4>
+            {categories.map((cat, idx) => {
+              const skillsList = cat.key === 'backend_databases'
+                ? [...(skillsData['backend'] || []), ...(skillsData['databases'] || [])]
+                : (skillsData[cat.key] || []);
+
+              return (
+                <div key={cat.key} className="skills-category-block border-line">
+                  <div className="skills-block-header">
+                    <span className="skills-block-num">0{idx + 1} /</span>
+                    <h4 className="skills-block-title">{cat.label}</h4>
+                  </div>
+                  <div className="skills-list">
+                    {skillsList.map((skill) => (
+                      <div key={skill} className="skill-item-tag border-line">
+                        <span className="skill-dot">◇</span>
+                        <span className="skill-name">{skill}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="skills-list">
-                  {skillsData[cat.key].map((skill) => (
-                    <div key={skill} className="skill-item-tag border-line">
-                      <span className="skill-dot">◇</span>
-                      <span className="skill-name">{skill}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

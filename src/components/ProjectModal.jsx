@@ -52,7 +52,6 @@ export default function ProjectModal({ project, onClose }) {
           {/* Banner Area */}
           <div className="modal-banner border-line">
             <div className="modal-banner-bg">
-              <div className="modal-watermark-large">{project.id}</div>
               {displayMockup ? (
                 <img
                   src={displayMockup}

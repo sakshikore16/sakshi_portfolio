@@ -61,7 +61,8 @@
 /* Project Cards editorial design */
 .project-card-editorial {
   background-color: var(--bg-card);
-  padding: 2.25rem 2.25rem 0 2.25rem; /* bottom padding is 0 to let mockup frame fit */
+  padding: 2.25rem 2.25rem 1.75rem 2.25rem;
+  /* bottom padding is added to give space below mockups */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -137,6 +138,13 @@
   min-height: 2.8rem;
 }
 
+.project-tech-badges-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
 .project-card-footer {
   padding: 0.75rem 0;
   margin-top: auto;
@@ -194,9 +202,10 @@
   position: relative;
   margin-top: auto;
   overflow: hidden;
-  background-color: var(--bg-secondary);
+  background-color: #ffffff;
+  /* always pure white to match the mockup image background */
   border: 1px solid var(--border-color);
-  border-bottom: none;
+  /* restored full border for neat card bounds */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,7 +279,8 @@
 }
 
 .project-card-editorial:hover .mockup-img {
-  transform: translateY(-30%); /* Scroll the preview screenshot on card hover! */
+  transform: translateY(-30%);
+  /* Scroll the preview screenshot on card hover! */
 }
 
 .mockup-placeholder-screen {
@@ -442,6 +452,7 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
   .project-card-editorial {
     min-height: 480px;
   }
@@ -451,19 +462,34 @@
   .project-card-editorial {
     padding: 1.5rem 1.5rem 0 1.5rem;
   }
+
   .laptop-mockup {
     width: 250px;
   }
+
   .laptop-screen {
     width: 200px;
     height: 120px;
   }
+
   .laptop-base {
     width: 230px;
   }
+
   .phone-mockup {
     right: 20px;
     width: 65px;
     height: 120px;
   }
+}
+
+/* Obsidian Theme mockup overrides */
+[data-theme="dark"] .project-mockup-display-direct {
+  background-color: #8fa0b5 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .project-direct-mockup-img {
+  mix-blend-mode: multiply !important;
+  filter: none !important;
 }

@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import { ArrowDown } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import InteractiveCalligraphy from './InteractiveCalligraphy';
 
+const nameLanguages = [
+  "साक्षी कोरे",     // Devanagari (Marathi/Hindi/Sanskrit)
+  "サクシ・コレ",    // Japanese (Katakana)
+  "સાક્ષી કોરે",     // Gujarati
+  "사쿠시 코레",     // Korean (Hangul)
+  "சாக்ஷி கோரே",     // Tamil
+  "萨克希·科雷",     // Chinese (Hanzi)
+  "సాక్షి కోరె",     // Telugu
+  "Сакши Коре",     // Russian (Cyrillic)
+  "ಸಾಕ್ಷಿ ಕೋರೆ",     // Kannada
+  "Σάκσι Κόρε",     // Greek
+  "সাক্ষী কোরে",     // Bengali
+  "ਸਾਕਸ਼ੀ ਕੋਰੇ",     // Punjabi (Gurmukhi)
+  "ศักดิ์ศรี โคเร"   // Thai
+];
+
 export default function Hero() {
-  const { fullName, marathiName, title, tagline } = portfolioData.personalInfo;
+  const { fullName, title, tagline } = portfolioData.personalInfo;
+  const [currentName, setCurrentName] = useState(nameLanguages[0]);
+  const [nextName, setNextName] = useState("");
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      const nextIndex = (index + 1) % nameLanguages.length;
+      setNextName(nameLanguages[nextIndex]);
+      setIsTransitioning(true);
+
+      setTimeout(() => {
+        setCurrentName(nameLanguages[nextIndex]);
+        setIsTransitioning(false);
+        index = nextIndex;
+      }, 800); // aligns with slide transition duration (800ms)
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleScrollToProjects = (e) => {
     e.preventDefault();
@@ -42,11 +78,20 @@ export default function Hero() {
           <div className="hero-left-col">
             <div className="cultural-tag">
               <span className="devanagari-badge">CRAFT & CODE</span>
-              <span className="cultural-slogan">Bridging Heritage & High Tech</span>
+              <span className="cultural-slogan">Interfacing Code, Design & AI</span>
             </div>
             
             <h1 className="hero-main-title">
-              <span className="hero-marathi-large">{marathiName}</span>
+              <div className="name-roller-container">
+                <span className={`name-script-roller ${isTransitioning ? 'slide-out' : ''}`}>
+                  {currentName}
+                </span>
+                {isTransitioning && (
+                  <span className="name-script-roller slide-in">
+                    {nextName}
+                  </span>
+                )}
+              </div>
               <span className="hero-name-split">
                 <span className="name-word font-sans">sakshi</span>
                 <span className="name-word serif-italic">kore</span>
@@ -62,7 +107,7 @@ export default function Hero() {
           <div className="hero-right-col border-line-y">
             <div className="editorial-meta">
               <span>EDITION // 2026</span>
-              <span>PUNE, IND</span>
+              <span>MUMBAI, IND</span>
             </div>
 
             <p className="hero-tagline">

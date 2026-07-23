@@ -73,18 +73,10 @@ export default function About() {
             </p>
           </div>
 
-          {/* Right Column: Cultural Card & Capabilities Grid */}
+          {/* Right Column: Capabilities Grid */}
           <div className="about-right-col border-line-y">
-            <div className="cultural-card border-line">
-              <div className="cultural-seal-watermark">SK</div>
-              <h4 className="cultural-card-title">Integrating Code, Design & AI</h4>
-              <p className="cultural-card-desc">
-                My approach bridges frontend architecture, mobile applications, backend services, and human-centered UI/UX systems. Leveraging my specialization in AI/ML, I build robust full-stack applications that digitize processes and offer clean user-friendly interfaces.
-              </p>
-            </div>
-
             {/* Core Areas / Capabilities & Domains */}
-            <div className="about-capabilities-block">
+            <div className="about-capabilities-block-top">
               <h3 className="about-subtitle">Capabilities & Domains</h3>
               <div className="interests-grid">
                 {coreInterests.map((interest) => {
@@ -100,6 +92,17 @@ export default function About() {
                 })}
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Full Width Footer Card: Integrating Code, Design & AI */}
+        <div className="about-full-width-container">
+          <div className="cultural-card border-line">
+            <div className="cultural-seal-watermark">SK</div>
+            <h4 className="cultural-card-title">Integrating Code, Design & AI</h4>
+            <p className="cultural-card-desc">
+              My approach bridges frontend architecture, mobile applications, backend services, and human-centered UI/UX systems. Leveraging my specialization in AI/ML, I build robust full-stack applications that digitize processes and offer clean user-friendly interfaces.
+            </p>
           </div>
         </div>
       </div>

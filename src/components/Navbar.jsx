@@ -56,7 +56,6 @@ export default function Navbar({ currentVibe, setVibe }) {
             <span className="logo-devanagari">{monogram}</span>
           </div>
           <div className="logo-text">
-            <span className="logo-marathi">{marathiName}</span>
             <span className="logo-english">{fullName.toLowerCase()}</span>
           </div>
         </a>
@@ -77,13 +76,13 @@ export default function Navbar({ currentVibe, setVibe }) {
           {/* Vibe Switcher Strip */}
           <div className="vibe-switcher-strip border-line">
             <button
-              className={`vibe-btn ${currentVibe === 'cultural' ? 'active' : ''}`}
-              onClick={() => setVibe('cultural')}
-              title="Cultural Editorial Vibe"
-              data-cursor-text="CULTURE"
+              className={`vibe-btn ${currentVibe === 'editorial' ? 'active' : ''}`}
+              onClick={() => setVibe('editorial')}
+              title="Editorial Vibe"
+              data-cursor-text="EDITORIAL"
             >
               <Feather size={14} />
-              <span className="vibe-btn-text">Cultural</span>
+              <span className="vibe-btn-text">Editorial</span>
             </button>
             
             <button
@@ -112,7 +111,7 @@ export default function Navbar({ currentVibe, setVibe }) {
         <div className="nav-mobile-controls">
           <button
             onClick={() => {
-              const vibes = ['cultural', 'obsidian', 'minimal'];
+              const vibes = ['editorial', 'obsidian', 'minimal'];
               const nextIdx = (vibes.indexOf(currentVibe) + 1) % vibes.length;
               setVibe(vibes[nextIdx]);
             }}
@@ -120,7 +119,7 @@ export default function Navbar({ currentVibe, setVibe }) {
             aria-label="Cycle Vibe"
             title="Cycle Active Vibe"
           >
-            {currentVibe === 'cultural' && <Feather size={18} />}
+            {currentVibe === 'editorial' && <Feather size={18} />}
             {currentVibe === 'obsidian' && <Sparkles size={18} />}
             {currentVibe === 'minimal' && <Type size={18} />}
           </button>

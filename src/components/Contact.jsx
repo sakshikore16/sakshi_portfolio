@@ -94,7 +94,7 @@ export default function Contact() {
           <div className="contact-left-col">
             <h3 className="contact-pane-title">Direct Connections</h3>
             <p className="contact-pane-desc">
-              Have an opening, an interesting project, or simply want to chat about UI/UX and AI? Drop a line here or reach out through social channels.
+              Have an opening, an interesting project, or simply want to chat about Software Development, UI/UX Design, or AI? Drop a line here or reach out through social channels.
             </p>
 
             <div className="social-links-list">
@@ -148,11 +148,6 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Cultural Devanagari signature */}
-            <div className="cultural-signature border-line">
-              <div className="signature-marathi">{marathiName}</div>
-              <div className="signature-english">sakshi kore // 2026</div>
-            </div>
           </div>
 
           {/* Right Column: Contact Form */}
@@ -211,7 +206,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
+                  rows="4"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Write your query details here..."

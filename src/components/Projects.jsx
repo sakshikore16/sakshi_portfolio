@@ -85,6 +85,13 @@ export default function Projects() {
                   <h3 className="project-card-title">{project.title}</h3>
                   <p className="project-card-tagline">{project.tagline}</p>
 
+                  {/* Tech badges positioned above mockup */}
+                  <div className="project-tech-badges-card">
+                    {project.techStack.map((tech) => (
+                      <span key={tech} className="tech-badge-mini">{tech}</span>
+                    ))}
+                  </div>
+
                   {/* Dynamic Device Mockup Box - Direct Presentation */}
                   <div className="project-mockup-display-direct">
                     {project.mockups.laptop ? (
@@ -98,14 +105,6 @@ export default function Projects() {
                         <span className="placeholder-tag">{project.title}</span>
                       </div>
                     )}
-                  </div>
-                </div>
-
-                <div className="project-card-footer border-line-x">
-                  <div className="project-tech-badges">
-                    {project.techStack.map((tech) => (
-                      <span key={tech} className="tech-badge-mini">{tech}</span>
-                    ))}
                   </div>
                 </div>
               </div>
@@ -134,6 +133,13 @@ export default function Projects() {
                   <h3 className="project-card-title">{project.title}</h3>
                   <p className="project-card-tagline">{project.tagline}</p>
 
+                  {/* Tech badges positioned above mockup */}
+                  <div className="project-tech-badges-card">
+                    {(project.methodologies || []).map((tech) => (
+                      <span key={tech} className="tech-badge-mini">{tech}</span>
+                    ))}
+                  </div>
+
                   {/* Dynamic Device Mockup Box - Direct Presentation */}
                   <div className="project-mockup-display-direct">
                     {project.mockups.main ? (
@@ -147,14 +153,6 @@ export default function Projects() {
                         <span className="placeholder-tag">{project.title}</span>
                       </div>
                     )}
-                  </div>
-                </div>
-
-                <div className="project-card-footer border-line-x">
-                  <div className="project-tech-badges">
-                    {(project.methodologies || []).map((tech) => (
-                      <span key={tech} className="tech-badge-mini">{tech}</span>
-                    ))}
                   </div>
                 </div>
               </div>

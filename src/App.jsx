@@ -16,7 +16,7 @@ export default function App() {
   const [vibe, setVibe] = useState(() => {
     const saved = localStorage.getItem('sakshi-vibe');
     if (saved) return saved;
-    return 'cultural';
+    return 'editorial';
   });
 
   const { fullName, marathiName, monogram } = portfolioData.personalInfo;
@@ -80,13 +80,13 @@ export default function App() {
           <div className="footer-left">
             <div className="footer-monogram">{monogram}</div>
             <div className="footer-text">
-              <span className="footer-name-marathi">{marathiName}</span>
+              <span className="footer-name-english">Sakshi Kore</span>
               <span className="footer-copyright">
                 © {new Date().getFullYear()} Sakshi Kore. All Rights Reserved.
               </span>
             </div>
           </div>
-          
+
           <div className="footer-right">
             <button
               onClick={handleScrollToTop}

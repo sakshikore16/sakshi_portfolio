@@ -71,6 +71,22 @@
   padding-top: 2rem;
 }
 
+.about-capabilities-block-top {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.about-full-width-container {
+  margin-top: 2.25rem;
+  width: 100%;
+}
+
+.about-full-width-container .cultural-card {
+  padding: 1.5rem 2rem;
+  min-height: auto;
+}
+
 /* Interests Grid */
 .interests-grid {
   display: grid;
